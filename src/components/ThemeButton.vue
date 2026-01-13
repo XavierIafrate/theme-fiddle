@@ -15,11 +15,11 @@ const isActive = ref(false);
 function handleClick() {
     if(isActive.value) {
         isActive.value = false;
-        emit('valueChanged', 'light');
+        emit('valueChanged', 'Light');
         return;
     }
     isActive.value = true;
-    emit('valueChanged', 'dark');
+    emit('valueChanged', 'Dark');
 
 }
 
@@ -49,9 +49,6 @@ const emit = defineEmits(['valueChanged'])
     background-color: v-bind(Colours.Yellow[300]);
 
 }
-
-
-
 
 .active {
     background-color: v-bind(Colours.Blue[950]) !important;

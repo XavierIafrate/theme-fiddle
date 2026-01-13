@@ -1,50 +1,29 @@
 <script setup lang="ts">
 import BaseButton from "./components/buttons/BaseButton.vue"
-import BaseCallout from "./components/callouts/BaseCallout.vue";
 import ThemeButton from "./components/ThemeButton.vue";
-import { ITheme, LightTheme, resolveTheme } from "./ui/theme"
+import { ITheme, resolveTheme, applyTheme } from "./ui/theme"
 import { UIConfig } from "./ui/ui";
 import InputWithValidationTooltip from './components/InputWithValidationTooltip.vue';
+import ThemeEditor from "./components/ThemeEditor.vue";
+import SuccessCallout from "./components/callouts/SuccessCallout.vue";
+import ErrorCallout from "./components/callouts/ErrorCallout.vue";
+import PrimaryCallout from "./components/callouts/PrimaryCallout.vue";
+import AccentCallout from "./components/callouts/AccentCallout.vue";
 
-const handleThemeChange = (selectedTheme) => {
-  let theme = resolveTheme(selectedTheme);
-  setTheme(theme);
+const handleThemeChange = (selectedTheme : String) : void => {
+  let theme : ITheme = resolveTheme(selectedTheme);
+  applyTheme(theme);
 }
 
-const setTheme = (theme : ITheme) => {
-  const root = document.documentElement;
-
-  for (const shade in theme.Primary) {
-    root.style.setProperty('--primary-' + shade, theme.Primary[shade]);
-  }
-
-  for (const shade in theme.Neutral) {
-    root.style.setProperty('--neutral-' + shade, theme.Neutral[shade]);
-  }
-
-  for (const shade in theme.Error) {
-    root.style.setProperty('--error-' + shade, theme.Error[shade]);
-  }
-
-  for (const shade in theme.Success) {
-    root.style.setProperty('--success-' + shade, theme.Success[shade]);
-  }
-
-
-  root.style.setProperty('--bg-primary', theme.BackgroundPrimary);
-  root.style.setProperty('--bg-secondary', theme.BackgroundSecondary);
-  root.style.setProperty('--text-primary', theme.TextPrimary);
-  root.style.setProperty('--text-secondary', theme.TextSecondary);
-  root.style.setProperty('--text-muted', theme.TextFaded);
+const setCssProperty = (name: string, value: string) : void => {
+  document.documentElement.style.setProperty(name, value);
+  localStorage.setItem(`css-var-${name}`, value);
 }
 
 const setUIDefaults = () => {
-  const root = document.documentElement;
-  root.style.setProperty('--border-radius', UIConfig.BorderRadius);
-  root.style.setProperty('--border-width', UIConfig.BorderWidth);
+  setCssProperty('--border-radius', UIConfig.BorderRadius);
+  setCssProperty('--border-width', UIConfig.BorderWidth);
 };
-
-setTheme(new LightTheme());
 
 setUIDefaults();
 
@@ -57,8 +36,10 @@ setUIDefaults();
       <BaseButton></BaseButton>
     </div>  
     <div class="callout-container">
-    <BaseCallout></BaseCallout>
-
+    <ErrorCallout></ErrorCallout>
+    <SuccessCallout></SuccessCallout>
+    <PrimaryCallout></PrimaryCallout>
+    <AccentCallout></AccentCallout>
     </div>
 
     <div class="text-container">
@@ -72,6 +53,7 @@ setUIDefaults();
 
     </div>
     <InputWithValidationTooltip></InputWithValidationTooltip>
+    <ThemeEditor></ThemeEditor>
   </div>
 </template>
 
@@ -134,6 +116,10 @@ body {
 
 .text-container :nth-child(7) {
   font-size: 30px;
+}
+
+.callout-container * {
+  margin: 5px;
 }
 
 </style>
