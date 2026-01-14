@@ -28,6 +28,9 @@ enum ColourBlindnessType {
 }
 
 class Colours {
+    static White : string = '#fff';
+    static Black : string = '#000';
+    
     static Blue: IColourPalette = {
         '50': '#eef9ff',
         '100': '#daf1ff',

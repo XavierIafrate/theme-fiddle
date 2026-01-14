@@ -131,9 +131,9 @@ const onLeave = (el, done) => {
 <style scoped>
 .container {
     padding: 8px 12px;
-    border: solid var(--error-normal) var(--border-width);
-    background-color: var(--error-light);
-    color: var(--error-normal);
+    border: solid var(--colour-red) var(--colour-red);
+    background-color: var(--colour-red);
+    color: var(--colour-red);
     border-radius: var(--border-radius);
 }
 

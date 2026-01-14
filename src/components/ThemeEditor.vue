@@ -23,6 +23,7 @@
             <option>Light</option>
             <option>Dark</option>
             <option>Protanopia</option>
+            <option>Deuteranopia</option>
             <option>Tritanopia</option>
             <option>Achromatopsia</option>
         </select>
@@ -32,24 +33,29 @@
 <script setup lang="ts">
     import { ref, watch } from 'vue';
     import { resolveTheme, applyTheme } from '@/ui/theme';
-    
+    const variables = ref([]);
     let selected = ref('');
 
-    const stored = localStorage.getItem('theme-info');
-    const variableObject = JSON.parse(stored);
-    const variables = ref([]);
-
-    Object.entries(variableObject).forEach(([name, value] : [string, string]) => {
-        variables.value.push({ key: name, value: value });
-    });
+    const loadCurrentTheme = () => {
+        const stored = localStorage.getItem('theme-info');
+        const variableObject = JSON.parse(stored);
+        variables.value = [];
+        Object.entries(variableObject).forEach(([name, value] : [string, string]) => {
+            variables.value.push({ key: name, value: value });
+        });
+    }
+    
 
     watch(selected, () => {
         console.log(selected.value)
         let theme = resolveTheme(selected.value);
         if(theme) {
             applyTheme(theme);
+            loadCurrentTheme();
         }
     })
+
+    loadCurrentTheme();
 </script>
 
 <style scoped>

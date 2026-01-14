@@ -53,14 +53,14 @@ setUIDefaults();
 
     </div>
     <InputWithValidationTooltip></InputWithValidationTooltip>
-    <ThemeEditor></ThemeEditor>
+    <ThemeEditor v-if="true"></ThemeEditor>
   </div>
 </template>
 
 <style scoped>
 .app-container {
   padding: 10%;
-  background-color: var(--bg-primary);
+  background-color: var(--colour-base-10);
   margin: 0;
   width: 100vw;
   height: 100vh;
@@ -83,7 +83,7 @@ setUIDefaults();
 }
 
 body {
-  color: var(--text-primary);
+  color: var(--text-normal);
 }
 
 /* .text-container {
@@ -122,4 +122,27 @@ body {
   margin: 5px;
 }
 
+</style>
+
+<style>
+  [data-accessibility-patterns-enabled="true"] .accessibility-pattern-dots { 
+    background-image:var(--accessibility-pattern-dots);
+    background-repeat: repeat; 
+    background-color: var(--accessibility-pattern-dots-colour) !important;
+    background-blend-mode: lighten;
+  }
+
+  [data-accessibility-patterns-enabled="true"] .accessibility-pattern-crosshatch { 
+    background-image:var(--accessibility-pattern-crosshatch);
+    background-repeat: repeat; 
+    background-color: var(--accessibility-pattern-crosshatch-colour) !important;
+    background-blend-mode: lighten;
+  }
+
+  [data-accessibility-patterns-enabled="true"] .accessibility-pattern-diagonal { 
+    background-image:var(--accessibility-pattern-diagonal);
+    background-repeat: repeat; 
+    background-color: var(--accessibility-pattern-diagonal-colour) !important;
+    background-blend-mode: lighten;
+  }
 </style>

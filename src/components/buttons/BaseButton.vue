@@ -1,5 +1,5 @@
 <template>
-    <button>{{ buttonText }}</button>
+    <button class="button accessibility-pattern-dots">{{ buttonText }}</button>
 </template>
 
 <script setup lang="ts">
@@ -15,23 +15,23 @@ defineProps({
 </script>
 
 <style scoped>
-button {
+.button {
     padding: 5px 8px;
-    border: solid var(--primary-600) var(--border-width);
-    background-color: var(--primary-200);
-    color: var(--primary-600);
+    border: solid var(--colour-primary) var(--border-width);
+    background-color: var(--colour-primary-faded);
+    color: var(--colour-primary);
     border-radius: var(--border-radius);
     transition: all 0.1s ease;
 }
 
-button:hover {
-    background-color: var(--primary-100);
+.button:hover {
+    background-color: var(--colour-primary);
     cursor: pointer;
 }
 
-button:active {
-    background-color: var(--primary-600);
-    color: var(--primary-200);
+.button:active {
+    background-color: var(--colour-primary-dark);
+    color: var(--text-normal);
     cursor: pointer;
 }
 </style>
