@@ -9,6 +9,8 @@ import SuccessCallout from "./components/callouts/SuccessCallout.vue";
 import ErrorCallout from "./components/callouts/ErrorCallout.vue";
 import PrimaryCallout from "./components/callouts/PrimaryCallout.vue";
 import AccentCallout from "./components/callouts/AccentCallout.vue";
+import InfoCallout from "./components/callouts/InfoCallout.vue";
+import WarningCallout from "./components/callouts/WarningCallout.vue";
 
 const handleThemeChange = (selectedTheme : String) : void => {
   let theme : ITheme = resolveTheme(selectedTheme);
@@ -40,6 +42,8 @@ setUIDefaults();
     <SuccessCallout></SuccessCallout>
     <PrimaryCallout></PrimaryCallout>
     <AccentCallout></AccentCallout>
+    <InfoCallout></InfoCallout>
+    <WarningCallout></WarningCallout>
     </div>
 
     <div class="text-container">

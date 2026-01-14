@@ -211,13 +211,23 @@ class LightTheme implements ITheme {
     ColourRed = '#e93147';
     ColourRedDark = '#a32232';
     ColourRedFaded = '#f8c1c8';
+
     ColourOrange = '#ec7500';
+    ColourOrangeDark = '#8e4600';
+    ColourOrangeFaded = '#f9d6b3';
+
+    ColourBlue = '#086ddd';
+    ColourBlueDark = '#054185';
+    ColourBlueFaded = '#b5d3f5';
+
     ColourGreen = '#08b94e';
     ColourGreenDark = '#056f2f';
     ColourGreenFaded = '#cef1dc';
+
     ColourPrimary = '#7852ee'
     ColourPrimaryDark = '#48318f'
     ColourPrimaryFaded = '#c9baf8'
+
     ColourAccent = '#00bfbc'
     ColourAccentDark = '#007371'
     ColourAccentFaded = '#b3eceb'
@@ -266,6 +276,7 @@ class ProtanopiaTheme implements ITheme {
     ColourRedFaded = '#fce4c4';    // Light peach (was light red)
 
     ColourOrange = '#ec7500';      // Unchanged - already distinguishable
+
 
     ColourGreen = '#00a8cc';       // Shifted to cyan-blue (was green)
     ColourGreenDark = '#006b7d';   // Dark cyan (was dark green)
@@ -501,13 +512,23 @@ class DarkTheme implements ITheme {
     ColourRed = '#ff5a6e';           // Brighter, more vibrant
     ColourRedDark = '#ff8a9a';       // Even lighter for subtle use
     ColourRedFaded = '#5a1f27';      // Darker, muted
+
     ColourOrange = '#ff9933';        // Brighter orange
+    ColourOrangeDark = '#ffb366';      // Lighter, warm orange
+    ColourOrangeFaded = '#3d2410';     // Darker, muted orange-bro
+
+    ColourBlue = '#4d9fff';            // Brighter, more vibrant blue
+    ColourBlueDark = '#80b3ff'; 
+    ColourBlueFaded = '#1a2d45';
+
     ColourGreen = '#0be95d';         // Brighter, more vibrant
     ColourGreenDark = '#5dff99';     // Lighter version
     ColourGreenFaded = '#1a4028';    // Darker, muted
+
     ColourPrimary = '#9d7aff';       // Brighter purple
     ColourPrimaryDark = '#b89fff';   // Lighter for subtle use
     ColourPrimaryFaded = '#2d1f4f';  // Darker, muted
+    
     ColourAccent = '#00f5f1';        // Brighter cyan
     ColourAccentDark = '#5dfffc';    // Lighter version
     ColourAccentFaded = '#0d3d3c';   // Darker, muted
